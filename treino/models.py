@@ -20,3 +20,12 @@ class Alunos(models.Model):
     def __str__(self):
         return self.nome
     
+class AulasConcluidas(models.Model):
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
+    data = models.DateField(auto_now_add=True)
+    faixa_atual = models.CharField(max_length=1, choices=faixa_choices)
+
+    def __str__(self):
+        return self.aluno.nome
+    
+
